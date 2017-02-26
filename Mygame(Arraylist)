@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class MyGame {
+
+    public static void main(String[] args) {
+        Scanner ip = new Scanner(System.in);
+        System.out.println("Welcome to MyGame");
+        System.out.print("Enter user1 name: ");
+        String user1 = ip.next();
+        System.out.print("Enter user2 name: ");
+        String user2 = ip.next();
+        System.out.println();
+        ArrayList<Knight> k = new <Knight>ArrayList();
+        k.add(new Knight(user1));
+        for (Knight a : k) {
+            a.showDetail();
+        }
+        System.out.println();
+        ArrayList<Magician> m = new <Magician>ArrayList();
+        m.add(new Magician(user2));
+        for (Magician b : m) {
+            b.showDetail();
+        }
+        System.out.println("*****Start Game******");
+        System.out.println();
+        for (Knight a : k) {
+            a.fight();
+            a.charge();
+            a.getNewItem("Bow_and_arrow");
+            a.fight();
+        }
+        System.out.println();
+        for (Magician b : m) {
+            b.getNewMagic("casting");
+            b.fight();
+            b.getNewMagic("teleport");
+        }
+        System.out.println();
+        System.out.println("*****End Game******");
+        System.out.println();
+        for (Knight a : k) {
+            a.showDetail();
+        }
+        System.out.println();
+        for (Magician b : m) {
+            b.showDetail();
+        }
+    }
+}
