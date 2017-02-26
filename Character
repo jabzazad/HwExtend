@@ -1,0 +1,22 @@
+
+public class Character {
+
+    protected String username;
+    protected String charType;
+    protected int fightPower;
+
+    public void showUserInfo() {
+        System.out.println("##User1 Info##");
+        System.out.println("username:" + this.username + " " + "charType:" + charType + " " + "Fight Power:" + fightPower);
+    }
+
+    public void fight() {
+        fightPower = fightPower - 1;
+        System.out.println(username + ":fight >> Fight Power =" + fightPower);
+    }
+
+    public void charge() {
+        fightPower = fightPower + 1;
+        System.out.println(username + ":charge >> Fight Power =" + fightPower);
+    }
+}
