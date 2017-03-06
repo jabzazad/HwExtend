@@ -1,0 +1,46 @@
+//5930213031 Padchara Teeduang
+class Address {
+    private String Address;
+    Address(String a){
+    this.Address=a;
+    }
+    public String getAddress(){
+    return Address;
+    }
+}
+import java.util.ArrayList;
+class Contact extends Address {
+    String name;
+    String Phonenumber;
+    Contact(String a){super(a);this.name=a;}
+    public static void main(String[]args){
+    ArrayList<Address>s=new<Address>ArrayList();
+    s.add(new Address("216/49 - T.bangrin A.muang C.Ranong 85000 "));
+    s.add(new Address("96/58 praphuketkeaw T.kathu A.kathu C.Phuket 83120"));
+    s.add(new Address("122/4 nawamin24 uten29zone beingkumarea bangkok"));
+    ArrayList<Contact>Num=new<Contact>ArrayList();
+    Num.add(new Contact("Padchara Teeduang"));
+    Num.get(0).Phonenumber="0810868140";
+    Num.add(new Contact("Tny"));
+    Num.get(1).Phonenumber="02-105-4469";
+    Num.add(new Contact("Tny"));
+      Num.get(2).Phonenumber=Num.get(1).Phonenumber;
+        System.out.println("-----------------------------------------------------------------");
+        System.out.println("Name\tphoneNo\tAddress");
+         System.out.println("-----------------------------------------------------------------");
+         for(int i=0;i<3;i++){
+             System.out.println(Num.get(i).name+"\t"+Num.get(i).Phonenumber+"\t"+s.get(i).getAddress());         
+         }
+          System.out.println("-----------------------------------------------------------------");
+}
+}
+/*
+result
+-----------------------------------------------------------------
+Name	phoneNo	Address
+-----------------------------------------------------------------
+Padchara Teeduang	0810868140	216/49 - T.bangrin A.muang C.Ranong 85000 
+Tny	02-105-4469	96/58 praphuketkeaw T.kathu A.kathu C.Phuket 83120
+Tny	02-105-4469	122/4 nawamin24 uten29zone beingkumarea bangkok
+-----------------------------------------------------------------
+*/
