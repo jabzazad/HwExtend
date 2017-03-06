@@ -1,4 +1,4 @@
-
+//5930213031 Padchara Teeduang
 public class Character {
 
     protected String username;
@@ -6,7 +6,7 @@ public class Character {
     protected int fightPower;
 
     public void showUserInfo() {
-        System.out.println("##User1 Info##");
+        System.out.println("##User"+this.r+" Info##");
         System.out.println("username:" + this.username + " " + "charType:" + charType + " " + "Fight Power:" + fightPower);
     }
 
