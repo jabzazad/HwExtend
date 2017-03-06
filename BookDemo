@@ -1,0 +1,110 @@
+//5930213031 Padchara Teeduang
+class Book {
+    protected String title;
+    protected double price;
+    public String getBookDetail(){
+    return title;
+    }
+ 
+}
+import java.util.Scanner;
+class Magazine extends Book {
+       String turnType;
+       Magazine(String c,String name,double price){
+           this.turnType=c;
+           this.title=name;
+           this.price=price;
+       }
+       public String getBookDetail(){
+      return super.getBookDetail();
+}     
+}
+
+class Textbook extends Book{
+String isbn;
+String author;
+Textbook(String a,double b,String c,String d){
+this.title=a;
+this.price=b;
+this.isbn=c;
+this.author=d;
+}
+public String getBookDetail(){
+return super.getBookDetail();
+}
+public void calculateDiscount(){
+    Scanner ip=new Scanner(System.in);
+    System.out.print("Enter Discount % : ");
+    double dis=ip.nextInt();
+    System.out.println("Discount : "+(int)(price*(dis/100)));
+    System.out.println("Discount Price : "+(int)(this.price-(price*(dis/100))));
+}
+}
+-----------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+import java.util.Scanner;
+public class BookDemo {
+    public static void main(String[]args){
+        Scanner ip=new Scanner(System.in);
+    ArrayList<Magazine>mag=new<Magazine>ArrayList();
+        System.out.println("Magazine");
+    mag.add(new Magazine("Monthly","Pc World",90));
+    mag.add(new Magazine("Monthly","GameMagazine",50));
+    mag.add(new Magazine("Daily","NoodleTime",15));
+    for(Magazine ck:mag){
+        System.out.println("Title : "+ck.getBookDetail());
+        System.out.println("Price : "+ck.price);
+        System.out.println("TurnType : "+ck.turnType);}
+    ArrayList<Textbook>text=new<Textbook>ArrayList();
+    text.add(new Textbook("OOP",400,"2222222222222","Peter Pan"));
+    text.add(new Textbook("Resident Evil 7",500,"1234567891234","Capcom"));
+    text.add(new Textbook("Python",399,"2222222222221","Ruski blabla"));
+        System.out.println("Textbook");
+        for(Textbook ax:text){
+        System.out.println("Title : "+ax.title);
+        System.out.println("Price : "+ax.price );
+        System.out.println("ISBN : "+ax.isbn);
+            System.out.println("Author : "+ax.author);
+            ax.calculateDiscount();
+            System.out.println("");
+         }       
+ 
+    }
+}
+/*
+result
+Magazine
+Title : Pc World
+Price : 90.0
+TurnType : Monthly
+Title : GameMagazine
+Price : 50.0
+TurnType : Monthly
+Title : NoodleTime
+Price : 15.0
+TurnType : Daily
+Textbook
+Title : OOP
+Price : 400.0
+ISBN : 2222222222222
+Author : Peter Pan
+Enter Discount % : 20
+Discount : 80
+Discount Price : 320
+
+Title : Resident Evil 7
+Price : 500.0
+ISBN : 1234567891234
+Author : Capcom
+Enter Discount % : 40
+Discount : 200
+Discount Price : 300
+
+Title : Python
+Price : 399.0
+ISBN : 2222222222221
+Author : Ruski blabla
+Enter Discount % : 99
+Discount : 395
+Discount Price : 3
+*/
