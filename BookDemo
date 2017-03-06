@@ -1,6 +1,7 @@
-//5930213031 Padchara Teeduang
+//5930213031 Padchara Teeduang 
+//ไม่ต้องอ่าน classอะไรก่อนหาmainให้เจอก่อนแล้วไล่ไป
 class Book {
-    protected String title;
+    protected String title;   //ใช้protect เพราะลูกสามารถเอาไปใช้ได้เลยไม่ต้องยุ่งยากแบบ private
     protected double price;
     public String getBookDetail(){
     return title;
@@ -8,22 +9,22 @@ class Book {
  
 }
 import java.util.Scanner;
-class Magazine extends Book {
+class Magazine extends Book {  
        String turnType;
-       Magazine(String c,String name,double price){
-           this.turnType=c;
+       Magazine(String c,String name,double price){  //จากmainส่งมาทำงานตามลำดับ 
+           this.turnType=c; 
            this.title=name;
            this.price=price;
        }
        public String getBookDetail(){
-      return super.getBookDetail();
+      return super.getBookDetail(); //ใช้superเพื่อให้ไปเอาข้อมูลจากคลาสแม่
 }     
 }
 
 class Textbook extends Book{
 String isbn;
 String author;
-Textbook(String a,double b,String c,String d){
+Textbook(String a,double b,String c,String d){ //ทำงานเหมือนข้างล่าง
 this.title=a;
 this.price=b;
 this.isbn=c;
@@ -44,28 +45,29 @@ public void calculateDiscount(){
 import java.util.ArrayList;
 import java.util.Scanner;
 public class BookDemo {
-    public static void main(String[]args){
-        Scanner ip=new Scanner(System.in);
-    ArrayList<Magazine>mag=new<Magazine>ArrayList();
+    public static void main(String[]args){  //นี้ไงmainเราเจอมันแล้วอยุนี้ไง
+        Scanner ip=new Scanner(System.in);   
+    ArrayList<Magazine>mag=new<Magazine>ArrayList();  //มันประกาศว่าArraylistของclassMagazineชื่อmag
         System.out.println("Magazine");
-    mag.add(new Magazine("Monthly","Pc World",90));
-    mag.add(new Magazine("Monthly","GameMagazine",50));
-    mag.add(new Magazine("Daily","NoodleTime",15));
-    for(Magazine ck:mag){
-        System.out.println("Title : "+ck.getBookDetail());
-        System.out.println("Price : "+ck.price);
+    mag.add(new Magazine("Monthly","Pc World",90));  //magส่งพวกข้อมูลต่างๆไปให้constuctorของคลาสMagzine
+    //พอเราอ่านเห็นพวก monthly พวกนี้แล้วกลับขึ่นไปดู constuctor ให้เราทำอะไรบ้าง
+    mag.add(new Magazine("Monthly","GameMagazine",50));//ตัวที่2
+    mag.add(new Magazine("Daily","NoodleTime",15));//ตัวที่3
+    for(Magazine ck:mag){ //ใช้loop for eachกำหนด ck มีค่าเป็น mag
+        System.out.println("Title : "+ck.getBookDetail()); //ใช้ ck.getBookDetail(); แสดงข้อมูลmethodของคลาสMagazine
+        System.out.println("Price : "+ck.price); //เหมือนกัน
         System.out.println("TurnType : "+ck.turnType);}
-    ArrayList<Textbook>text=new<Textbook>ArrayList();
-    text.add(new Textbook("OOP",400,"2222222222222","Peter Pan"));
-    text.add(new Textbook("Resident Evil 7",500,"1234567891234","Capcom"));
-    text.add(new Textbook("Python",399,"2222222222221","Ruski blabla"));
+    ArrayList<Textbook>text=new<Textbook>ArrayList();  //Arraylistไหม่ที่ใช้ข้อมูลคลาสTextbook
+    text.add(new Textbook("OOP",400,"2222222222222","Peter Pan")); //เพิ่งค่าลงในArraylist
+    text.add(new Textbook("Resident Evil 7",500,"1234567891234","Capcom"));//2
+    text.add(new Textbook("Python",399,"2222222222221","Ruski blabla"));//3
         System.out.println("Textbook");
-        for(Textbook ax:text){
+        for(Textbook ax:text){  //loop for eachเหมือนกัน
         System.out.println("Title : "+ax.title);
         System.out.println("Price : "+ax.price );
         System.out.println("ISBN : "+ax.isbn);
             System.out.println("Author : "+ax.author);
-            ax.calculateDiscount();
+            ax.calculateDiscount(); //ให้มันดึงเอาcalculateมาใช้ถ้าไม่ใช้for eachก็จะไม่สามารถดึงได้ถ้าจะให้ได้ต้องใช้ oop ไม่ไช่ arralist
             System.out.println("");
          }       
  
